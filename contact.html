@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | HomeFix</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="uzair.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">HomeFix</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <section class="contact-hero">
+      <div class="hero-content">
+        <h1>Get In Touch</h1>
+        <p>
+          We’re here to help! Reach us via form, email, or phone. Your comfort
+          is our priority.
+        </p>
+      </div>
+      <div class="hero-animation"></div>
+    </section>
+
+    <section class="contact-info">
+      <div class="info-grid">
+        <div class="info-card">
+          <img src="images/email.png" alt="Email" />
+          <h3>Email Us</h3>
+          <p>ua175511@gmail.com</p>
+        </div>
+        <a
+          href="https://wa.me/923182396490?text=Hi%20HomeFix,%20I%20need%20home%20service%20assistance."
+          class="info-card whatsapp-card"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="images/phone.jpg" alt="WhatsApp" />
+          <h3>WhatsApp Us</h3>
+          <p>+923182396490</p>
+        </a>
+
+        <div class="info-card">
+          <img src="images/location.png" alt="Location" />
+          <h3>Visit Us</h3>
+          <p>Karachi, Pakistan</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-form-section">
+      <div class="contact-form-card">
+        <h2>Send Us a Message</h2>
+        <form id="contactForm">
+          <input type="text" id="name" placeholder="Your Name" required />
+          <input type="email" id="email" placeholder="Your Email" required />
+          <textarea
+            id="message"
+            placeholder="Your Message"
+            rows="5"
+            required
+          ></textarea>
+          <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 HomeFix. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const revealElements = document.querySelectorAll(
+        ".info-card, .contact-form-card"
+      );
+      window.addEventListener("scroll", () => {
+        const triggerBottom = window.innerHeight / 1.1;
+        revealElements.forEach((el) => {
+          const elTop = el.getBoundingClientRect().top;
+          if (elTop < triggerBottom) el.classList.add("active");
+        });
+      });
+    </script>
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const message = document.getElementById("message").value;
+
+          const newMessage = {
+            name,
+            email,
+            message,
+            date: new Date().toLocaleString(),
+          };
+
+          let messages = JSON.parse(localStorage.getItem("messages")) || [];
+          messages.push(newMessage);
+          localStorage.setItem("messages", JSON.stringify(messages));
+
+          alert("Message saved successfully!");
+          this.reset();
+        });
+    </script>
+  </body>
+</html>

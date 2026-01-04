@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Detail | HomeFix</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="uzair.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">HomeFix</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="booking.html">Booking</a>
+        <a href="registration.html">Registration</a>
+        <a href="login.html" class="nav-btn">Login</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+    <section
+      class="page-section"
+      style="padding: 50px 20px; text-align: center"
+    >
+      <div class="service-detail-card">
+        <img id="service-image" src="" alt="Service Image" />
+        <h2 id="service-title"></h2>
+        <p id="service-short-desc"></p>
+
+        <div class="service-full-desc">
+          <h3>Service Overview</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac
+            eros vitae sapien facilisis sodales.
+          </p>
+
+          <h3>Features & Benefits</h3>
+          <ul>
+            <li>Expert technicians</li>
+            <li>24/7 availability</li>
+            <li>Affordable pricing</li>
+            <li>Warranty on work</li>
+          </ul>
+        </div>
+
+        <a href="booking.html" class="btn-primary">Book Now</a>
+      </div>
+    </section>
+
+    <footer class="footer">© 2026 HomeFix. All rights reserved.</footer>
+
+    <script>
+      const services = {
+        electrician: {
+          title: "Electrician",
+          image: "images/electrician.png",
+          shortDesc:
+            "Professional electrical services including wiring, installation, and repairs.",
+          features: [
+            "Expert technicians",
+            "24/7 availability",
+            "Affordable pricing",
+            "Warranty on work",
+          ],
+          overview:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac eros vitae sapien facilisis sodales.",
+        },
+        plumber: {
+          title: "Plumber",
+          image: "images/plumber.jpeg",
+          shortDesc:
+            "Expert plumbing solutions from leak repairs to full installation services.",
+          features: [
+            "Leak repairs",
+            "Pipe installation",
+            "Emergency service",
+            "Affordable rates",
+          ],
+          overview:
+            "Plumbing services for homes and offices, ensuring smooth water flow and leak-free pipes.",
+        },
+        ac: {
+          title: "AC Repair",
+          image: "images/ac_repair.png",
+          shortDesc:
+            "Cooling solutions and air conditioning maintenance by skilled technicians.",
+          features: [
+            "AC installation",
+            "Maintenance & repair",
+            "Energy efficient solutions",
+            "Warranty included",
+          ],
+          overview:
+            "Keep your home cool with professional AC repair and maintenance services.",
+        },
+        cleaning: {
+          title: "Cleaning",
+          image: "images/cleaner.jpeg",
+          shortDesc:
+            "Home and office cleaning services ensuring hygiene and cleanliness.",
+          features: [
+            "Home cleaning",
+            "Office cleaning",
+            "Hygienic & safe",
+            "Eco-friendly products",
+          ],
+          overview:
+            "Comprehensive cleaning services for a sparkling clean environment.",
+        },
+      };
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const serviceKey = urlParams.get("service") || "electrician"; // default electrician
+
+      const serviceData = services[serviceKey];
+
+      document.getElementById("service-image").src = serviceData.image;
+      document.getElementById("service-title").innerText = serviceData.title;
+      document.getElementById("service-short-desc").innerText =
+        serviceData.shortDesc;
+
+      const featuresList = document.querySelector(".service-full-desc ul");
+      featuresList.innerHTML = "";
+      serviceData.features.forEach((f) => {
+        const li = document.createElement("li");
+        li.textContent = f;
+        featuresList.appendChild(li);
+      });
+
+      // Set overview
+      document.querySelector(".service-full-desc p").innerText =
+        serviceData.overview;
+    </script>
+  </body>
+</html>

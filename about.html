@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | HomeFix</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="uzair.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">HomeFix</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <section class="about-hero">
+      <div class="hero-content">
+        <h1>About HomeFix</h1>
+        <p>
+          We deliver trusted home services with verified professionals, ensuring
+          comfort and satisfaction for every household.
+        </p>
+      </div>
+      <div class="hero-animation"></div>
+    </section>
+
+    <section class="about-info">
+      <div class="info-grid">
+        <div class="info-card">
+          <img src="images/qs.png" alt="Quality Service" />
+          <h3>Trusted Professionals</h3>
+          <p>
+            All our service providers are verified, skilled, and highly
+            experienced.
+          </p>
+        </div>
+        <div class="info-card">
+          <img src="images/s.png" alt="Support" />
+          <h3>24/7 Support</h3>
+          <p>
+            Reach us anytime for bookings, queries, or assistance — we are
+            always here to help.
+          </p>
+        </div>
+        <div class="info-card">
+          <img src="images/3.jpg" alt="Satisfaction" />
+          <h3>Customer Satisfaction</h3>
+          <p>
+            We ensure quality service and full satisfaction with every task we
+            perform.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-team">
+      <h2>Meet Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="images/founder_ceo.png" alt="Ali Ahmed" />
+          <h4>Ali Ahmed</h4>
+          <p>Founder & CEO</p>
+        </div>
+        <div class="team-member">
+          <img src="images/2.jpeg" alt="Sara Khan" />
+          <h4>Sara Khan</h4>
+          <p>Operations Head</p>
+        </div>
+        <div class="team-member">
+          <img src="images/1.png" alt="Uzair Ahmed" />
+          <h4>Uzair Ahmed</h4>
+          <p>Lead Developer</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 HomeFix. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const revealElements = document.querySelectorAll(
+        ".info-card, .team-member"
+      );
+      window.addEventListener("scroll", () => {
+        const triggerBottom = window.innerHeight / 1.1;
+        revealElements.forEach((el) => {
+          const elTop = el.getBoundingClientRect().top;
+          if (elTop < triggerBottom) {
+            el.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

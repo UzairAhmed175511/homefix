@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset=UTF-8>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <title>Book Service | HomeFix</title>
+
+  <link href=https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap rel=stylesheet>
+
+ <link rel="stylesheet" href="style.css">
+
+  <script src=js/main.js></script>
+</head>
+<body class=auth-body>
+
+<header class=navbar>
+  <div class=logo>HomeFix</div>
+</header>
+
+<section class=auth-section>
+  <div class=auth-card>
+    <h2>Book Your Service </h2>
+    <p>Fill in your details to confirm your booking</p>
+
+    <form class=form onsubmit=return bookService()>
+      <input type=text placeholder=Full Name required>
+      <input type=text placeholder=Address required>
+      <input type=date required title="date">
+      <button class=btn-primary type="submit">Confirm Booking</button>
+    </form>
+  </div>
+</section>
+
+<footer class=footer>
+  © 2026 HomeFix
+</footer>
+
+</body>
+</html>
